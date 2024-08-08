@@ -1,0 +1,30 @@
+Cloud Naradha - AWS Admin Practical Test (120 min)
+
+Each activity has to be performed using IAM user - Admin privileges
+
+VPC (Regions: Mumbai & Ohio) (20 min)
+• Create 2 VPCs, 1 in each AWS Region -> both cidr block of the vpc has be to different
+• Create 2 subnet for each VPC (1 Public & 1 Private) ->
+• Private subnet can access the internet. -> Nat Gateway(Public subnet)
+• Both VPC Resources can communicate with each other using Private IP. - vpc peering
+EC2 (Regions: Mumbai) (40 min)
+• Create 2 Instances, 1 in Public subnet (Linux) & 1 in Private subnet (linux )
+• Assign Elastic IP to Public instance.
+• Configure Security Groups for each instance follow security best practices – ssh-22 -allow only specific ip ( our system ip)
+. Allow traffic to the private subnet instance allow only from jumpbox - ssh 
+• Attach Encrypted EBS volume (10GB) on private linux instance and Mount on server.
+• Configure web server (Httpd) and host HTML page
+. Every day volume & AMI back up is required for private subnet instance - Data Lifecycle manager - Tag based
+• Configure  Auto Scaling for the server with minimum 1 Instance and maximum 3
+instances. yes > /dev/null
+S3 (Regions: Mumbai) (10 min)
+• Create a Bucket, enable object versioning and configure Lifecycle Policy which will
+delete data which are older than 2 days.
+• Host any HTML page on S3 Bucket.
+. Apply SSL certificate for the domain - ACM - cloudfront - n.virginia
+• Copy data linux server Encrypted Volume Data on S3 using AWSCLI. - IAM role & aws aacees key and secrete key
+Route 53 (10 min)
+• Point cloud front distribution url on your domain name
+Cloudwatch (10 min)
+• Configure CPU,Memory & Disk utilisation Dashboard for linux EC2 Instance and configure Alert on Email (ktiriveedi@gmail.com).
+. Push all servers logs to centralised log management - Cloudwatch Log groups
